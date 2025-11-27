@@ -41,7 +41,7 @@ module.exports = [
   'UCQw-gifozSHKEMyECP8q_-A', // Opossum Bud
   'UC6PSVUj7qWYpagU_3j5z04w', // Danireon
   'UC7zlHB2JcfTJXhP4ATX6tjg', // Gem Mint Pokemon
-  'UC3aHEgofR7sW1W9Up6_8Vug'. // TCGbuyersclub
+  'UC3aHEgofR7sW1W9Up6_8Vug', // TCGbuyersclub
   'UClQHyDhYq-2xH0OJ9I_Y4Mw', // GabesPC
   'UCd4UA4MC7R_1LlEFd2Jtm7g', // TCGgrading
   'UC8FyZ-7SuPVVaoxpFOE5pvA', // TwicebakedJake
