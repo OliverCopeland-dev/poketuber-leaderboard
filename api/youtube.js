@@ -11,23 +11,50 @@ if (!API_KEY) {
   process.exit(1);
 }
 
+// Helper: compute months between two dates
 function monthsBetween(start, end) {
   const ms = end.getTime() - start.getTime();
   const days = ms / (1000 * 60 * 60 * 24);
-  return days / 30.4;
+  return days / 30.4; // rough average
+}
+
+// Helper: fetch most recent upload date from an uploads playlist
+async function fetchLastUploadDate(uploadsPlaylistId) {
+  if (!uploadsPlaylistId) return null;
+
+  try {
+    const res = await axios.get(`${YT_BASE}/playlistItems`, {
+      params: {
+        part: 'contentDetails',
+        playlistId: uploadsPlaylistId,
+        maxResults: 1,
+        key: API_KEY,
+      },
+    });
+
+    const items = res.data.items || [];
+    if (!items.length) return null;
+
+    // This field holds the upload time of the video in the playlist
+    return items[0].contentDetails?.videoPublishedAt || null;
+  } catch (err) {
+    console.error('Error fetching last upload date for playlist', uploadsPlaylistId, err.message);
+    return null;
+  }
 }
 
 async function fetchChannelStats() {
   if (!channels.length) return [];
 
-  const batchSize = 50;
+  const batchSize = 50; // YouTube limit
   const now = new Date();
   const results = [];
 
   for (let i = 0; i < channels.length; i += batchSize) {
     const batch = channels.slice(i, i + batchSize);
+
     const params = {
-      part: 'snippet,statistics',
+      part: 'snippet,statistics,contentDetails', // NOTE: added contentDetails
       id: batch.join(','),
       key: API_KEY,
       maxResults: 50,
@@ -44,8 +71,16 @@ async function fetchChannelStats() {
       const subs = parseInt(stats.subscriberCount || '0', 10);
       const videos = parseInt(stats.videoCount || '0', 10);
 
+      // uploads playlist for this channel
+      const uploadsPlaylistId =
+        item.contentDetails?.relatedPlaylists?.uploads || null;
+
+      // newest upload date (may be null if no videos / playlist)
+      const lastUploadAt = await fetchLastUploadDate(uploadsPlaylistId);
+
       let ageMonths = 0;
       let subsPerMonth = 0;
+
       if (publishedAt) {
         const createdDate = new Date(publishedAt);
         ageMonths = monthsBetween(createdDate, now);
@@ -65,6 +100,7 @@ async function fetchChannelStats() {
         ageMonths,
         subsPerMonth,
         subsPerVideo,
+        lastUploadAt, // <-- NEW
         url: `https://www.youtube.com/channel/${id}`,
         thumbnail:
           item.snippet?.thumbnails?.default?.url ||

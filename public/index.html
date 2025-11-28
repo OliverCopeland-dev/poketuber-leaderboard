@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Pokétuber Leaderboard</title>
+  <title>Pokétuber Leaderboard (Beta)</title>
   <style>
     body {
       background: #111;
@@ -72,11 +72,25 @@
       font-feature-settings: "tnum";
       text-align: right;
     }
+
+    /* --- NEW: emoji flag styling --- */
+    .flag-wrapper {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 6px;        /* little space after channel name */
+      font-size: 16px;         /* slightly bigger than text */
+    }
+    .flag-emoji {
+      cursor: help;            /* hints that there’s a tooltip */
+      line-height: 1;
+    }
+    /* --- end emoji flag styling --- */
   </style>
 </head>
 <body>
   <div class="top-bar">
-    <h1>Pokétuber Leaderboard</h1>
+    <h1>Pokétuber Leaderboard (Beta)</h1>
     <label>
       Sort by:
       <select id="sortMode">
