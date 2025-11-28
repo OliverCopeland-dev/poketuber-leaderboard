@@ -38,7 +38,11 @@ async function fetchLastUploadDate(uploadsPlaylistId) {
     // This field holds the upload time of the video in the playlist
     return items[0].contentDetails?.videoPublishedAt || null;
   } catch (err) {
-    console.error('Error fetching last upload date for playlist', uploadsPlaylistId, err.message);
+    console.error(
+      'Error fetching last upload date for playlist',
+      uploadsPlaylistId,
+      err.message
+    );
     return null;
   }
 }
@@ -54,7 +58,7 @@ async function fetchChannelStats() {
     const batch = channels.slice(i, i + batchSize);
 
     const params = {
-      part: 'snippet,statistics,contentDetails', // NOTE: added contentDetails
+      part: 'snippet,statistics,contentDetails', // includes uploads playlist
       id: batch.join(','),
       key: API_KEY,
       maxResults: 50,
@@ -100,7 +104,7 @@ async function fetchChannelStats() {
         ageMonths,
         subsPerMonth,
         subsPerVideo,
-        lastUploadAt, // <-- NEW
+        lastUploadAt, // 👈 this is what main.js uses for 😴
         url: `https://www.youtube.com/channel/${id}`,
         thumbnail:
           item.snippet?.thumbnails?.default?.url ||
