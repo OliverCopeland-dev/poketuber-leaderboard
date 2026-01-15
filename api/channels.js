@@ -29,6 +29,7 @@ module.exports = [
   'UCTh0JWgdCTh0RHV9DaDpEFQ', // Ketchum All Collectibles
   'UCne7balATjLOu3Wubi16GGQ', // Watto Rips
   'UC1UMKlWuxa4OKBeIL-3ZRMg', // Eva's Binder
+  'UC71LnOWE9ow1lQ3G7D0Su_w', // Check the Box
   'UCbfublxK88_z96MBiiSzrtA', // TCA_Gaming
   'UClDzhS86bdG1_eE8INz5OAQ', // The Weekly Weedle
   'UCYULNGZUMofzBFgYmhvHV2g', // Pokelou502
