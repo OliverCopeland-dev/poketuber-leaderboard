@@ -26,11 +26,22 @@ module.exports = [
   'UCyXSdy5frg9XlhgDeGn1JKg', // The Poke Office
   'UCDgGg_FCzNIDPUu517_Dt3Q', // Poke Unlocked
   'UCUUTHem83XVDJXF4eDIxoRA', // Bob's Japan
+  'UCj6vOSroXW322tzhF2DeHAA', // Flipping Cardboard
   'UCTh0JWgdCTh0RHV9DaDpEFQ', // Ketchum All Collectibles
+  'UC9IsAmMbIFkkvSk6pPpb3Hg', // CollectibleTags
+  'UC9Spl_jGcTb04smRNrdVUEw', // NoRelaxShop
+  'UCweh8CzIYgMpvgvhniVKNQw', // Snomnom
+  'UC-mDbPaXMhSCKgHIjyVX2Vw', // MaxDoesPokemon
   'UCne7balATjLOu3Wubi16GGQ', // Watto Rips
+  'UCA2_DFAfVownmKjWwWpJ4uw', // Slanted Gaming
+  'UCumTiTPcXiieOPwHk8kO8ww', // PokeCT
   'UC1UMKlWuxa4OKBeIL-3ZRMg', // Eva's Binder
+  'UCC6sTyVMHdu22ftj1BLSRHg', // Alex Ketchem
   'UC71LnOWE9ow1lQ3G7D0Su_w', // Check the Box
   'UCbfublxK88_z96MBiiSzrtA', // TCA_Gaming
+  'UCxfv7OZLMU-MXm3khqApClg', // PackMania
+  'UC274PEnFIQktbCbxDzzS-7Q', // Short pocket monster
+  'UCfrmNBX_mX_dcUbiaEXsvYQ', // Pokemon Trainer Nguyen
   'UClDzhS86bdG1_eE8INz5OAQ', // The Weekly Weedle
   'UCYULNGZUMofzBFgYmhvHV2g', // Pokelou502
   'UC5OnWXD44FjvIM0D2Q6-j3g', // Pokemon Classics
